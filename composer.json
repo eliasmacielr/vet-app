@@ -11,8 +11,8 @@
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*",
         "friendsofcake/search": "^1.2",
-        "ext-sqlite": "*",
-        "ext-pdo_sqlite": "*"
+        "sqlite": "*",
+        "pdo_sqlite": "*"
     },
     "require-dev": {
         "psy/psysh": "@stable",
