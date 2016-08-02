@@ -1,0 +1,149 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2016-05-03 01:51+0000\n"
+"PO-Revision-Date: 2016-05-02 22:30-0400\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Language: es_PY\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: Controller/LocationsController.php:55;80
+msgid "The location has been saved."
+msgstr ""
+
+#: Controller/LocationsController.php:58;83
+msgid "The location could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/LocationsController.php:102
+msgid "The location has been deleted."
+msgstr ""
+
+#: Controller/LocationsController.php:104
+msgid "The location could not be deleted. Please, try again."
+msgstr ""
+
+#: Template/Locations/add.ctp:3 Template/Locations/edit.ctp:3
+#: Template/Locations/index (copia 1).ctp:10 Template/Locations/view.ctp:3;47
+msgid "Actions"
+msgstr ""
+
+#: Template/Locations/add.ctp:4 Template/Locations/edit.ctp:10
+#: Template/Locations/view.ctp:6
+msgid "List Locations"
+msgstr ""
+
+#: Template/Locations/add.ctp:5 Template/Locations/edit.ctp:11
+#: Template/Locations/view.ctp:8
+msgid "List Customers"
+msgstr ""
+
+#: Template/Locations/add.ctp:6 Template/Locations/edit.ctp:12
+#: Template/Locations/view.ctp:9
+msgid "New Customer"
+msgstr ""
+
+#: Template/Locations/add.ctp:12
+msgid "Add Location"
+msgstr ""
+
+#: Template/Locations/add.ctp:17 Template/Locations/edit.ctp:23
+msgid "Submit"
+msgstr "Enviar"
+
+#: Template/Locations/edit.ctp:5 Template/Locations/index (copia 1).ctp:23
+#: Template/Locations/view.ctp:64
+msgid "Delete"
+msgstr ""
+
+#: Template/Locations/edit.ctp:7 Template/Locations/index (copia 1).ctp:23
+#: Template/Locations/view.ctp:5;64
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Template/Locations/edit.ctp:18 Template/Locations/view.ctp:4
+msgid "Edit Location"
+msgstr ""
+
+#: Template/Locations/index (copia 1).ctp:2
+msgid "Locations"
+msgstr ""
+
+#: Template/Locations/index (copia 1).ctp:21 Template/Locations/view.ctp:62
+msgid "View"
+msgstr "Ver"
+
+#: Template/Locations/index (copia 1).ctp:22 Template/Locations/view.ctp:63
+msgid "Edit"
+msgstr "Editar"
+
+#: Template/Locations/index (copia 1).ctp:31
+msgid "previous"
+msgstr "anterior"
+
+#: Template/Locations/index (copia 1).ctp:33
+msgid "next"
+msgstr "siguiente"
+
+#: Template/Locations/view.ctp:5
+msgid "Delete Location"
+msgstr ""
+
+#: Template/Locations/view.ctp:7
+msgid "New Location"
+msgstr ""
+
+#: Template/Locations/view.ctp:16;38
+msgid "Name"
+msgstr ""
+
+#: Template/Locations/view.ctp:20;37
+msgid "Id"
+msgstr ""
+
+#: Template/Locations/view.ctp:24;44
+msgid "Created"
+msgstr ""
+
+#: Template/Locations/view.ctp:28;45
+msgid "Modified"
+msgstr ""
+
+#: Template/Locations/view.ctp:33
+msgid "Related Customers"
+msgstr ""
+
+#: Template/Locations/view.ctp:39
+msgid "Last Name"
+msgstr ""
+
+#: Template/Locations/view.ctp:40
+msgid "Email"
+msgstr ""
+
+#: Template/Locations/view.ctp:41
+msgid "Phone"
+msgstr ""
+
+#: Template/Locations/view.ctp:42
+msgid "Phone Other"
+msgstr ""
+
+#: Template/Locations/view.ctp:43
+msgid "Address"
+msgstr ""
+
+#: Template/Locations/view.ctp:46
+msgid "Location Id"
+msgstr ""
+
+msgid "search"
+msgstr "buscar"
