@@ -18,8 +18,8 @@ class CreateMovements extends AbstractMigration
             'limit' => 50,
             'null' => false,
         ]);
-        $table->addColumn('type', 'enum', [
-            'values' => ['income', 'outcome'],
+        $table->addColumn('type', 'string', [
+            'limit' => 10,
             'null' => false,
         ]);
         $table->addColumn('amount', 'integer', [

@@ -20,8 +20,8 @@ class CreateObservation extends AbstractMigration
         $table->addColumn('content', 'text', [
             'null' => false,
         ]);
-        $table->addColumn('type', 'enum', [
-            'values' => ['info', 'urgent'],
+        $table->addColumn('type', 'string', [
+            'limit' => 10,
             'null' => false,
         ]);
         $table->addColumn('created', 'datetime', [

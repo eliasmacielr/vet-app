@@ -17,8 +17,8 @@ class CreatePatients extends AbstractMigration
             'limit' => 50,
             'null' => false,
         ]);
-        $table->addColumn('sex', 'enum', [
-            'values' => ['male', 'female'],
+        $table->addColumn('sex', 'string', [
+            'limit' => '10',
             'null' => false,
         ]);
         $table->addColumn('birthday', 'date', [

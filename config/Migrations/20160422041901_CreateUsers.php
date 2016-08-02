@@ -37,8 +37,8 @@ class CreateUsers extends AbstractMigration
             'default' => true,
             'null' => false,
         ]);
-        $table->addColumn('group_name', 'enum', [
-            'values' => ['admin', 'staff'],
+        $table->addColumn('group_name', 'string', [
+            'limit' => 10,
             'null' => false,
         ]);
         $table->addColumn('created', 'datetime', [
