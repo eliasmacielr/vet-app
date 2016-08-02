@@ -21,6 +21,10 @@ class CreateVaccinations extends AbstractMigration
             'default' => null,
             'null' => false,
         ]);
+        $table->addColumn('revaccinated', 'boolean', [
+            'default' => null,
+            'null' => false,
+        ]);
         $table->addColumn('annotations', 'string', [
             'default' => null,
             'limit' => 150,
