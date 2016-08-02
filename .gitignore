@@ -14,7 +14,7 @@
 !/tmp/sessions/empty
 /tmp/tests/*
 !/tmp/tests/empty
-/tmp/*.sqlite
+!/tmp/*.sqlite
 
 /logs/*
 !/logs/empty
