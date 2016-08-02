@@ -9,7 +9,8 @@ return [
      * Development Mode:
      * true: Errors and warnings shown.
      */
-    'debug' => filter_var(env('DEBUG', true), FILTER_VALIDATE_BOOLEAN),
+    // 'debug' => filter_var(env('DEBUG', true), FILTER_VALIDATE_BOOLEAN),
+    'debug' => true,
 
     /**
      * Configure basic information about the application.
@@ -38,8 +39,10 @@ return [
      */
     'App' => [
         'namespace' => 'App',
-        'encoding' => env('APP_ENCODING', 'UTF-8'),
-        'defaultLocale' => env('APP_DEFAULT_LOCALE', 'es_PY'),
+        // 'encoding' => env('APP_ENCODING', 'UTF-8'),
+        'encoding' => 'UTF-8',
+        // 'defaultLocale' => env('APP_DEFAULT_LOCALE', 'es_PY'),
+        'defaultLocale' => 'es_PY',
         'base' => false,
         'dir' => 'src',
         'webroot' => 'webroot',
@@ -217,7 +220,7 @@ return [
     'Datasources' => [
         'default' => [
             'className' => 'Cake\Database\Connection',
-            'driver' => 'Cake\Database\Driver\Mysql',
+            'driver' => 'Cake\Database\Driver\Postgres',
             'persistent' => false,
             'host' => 'localhost',
             /**
