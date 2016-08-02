@@ -14,7 +14,7 @@
         "psy/psysh": "@stable",
         "cakephp/bake": "~1.1",
         "friendsofcake/search": "^1.2",
-        "ext-sqlite"
+        "ext-sqlite3": "*"
     },
     "require-dev": {
         "psy/psysh": "@stable",

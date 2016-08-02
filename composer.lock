@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4e207683bcdc856bee671e9249f7dc1e",
-    "content-hash": "84c90f6faaa7fbb8c2e1147d0c3b4bd4",
+    "hash": "17bae666e326e2059d107d5d2c2066f5",
+    "content-hash": "94710302dbc2b523f1c841132623d490",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -1279,7 +1279,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.9"
+        "php": ">=5.5.9",
+        "ext-sqlite3": "*"
     },
     "platform-dev": []
 }
