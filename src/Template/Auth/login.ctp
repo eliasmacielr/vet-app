@@ -37,7 +37,7 @@
             <div class="login-box-body">
                 <p class="login-box-msg">Iniciar Sesión</p>
                 <?= $this->Form->create($login) ?>
-                    <?= $this->Form->input('email', ['class' => 'form-control', 'label' => 'Email', 'placeholder' => 'correo@ejemplo.com', 'autofocus']) ?>
+                    <?= $this->Form->input('email', ['class' => 'form-control', 'label' => 'Email', 'placeholder' => 'correo@ejemplo.com']) ?>
                     <?= $this->Form->input('password', ['class' => 'form-control', 'label' => 'Contraseña', 'placeholder' => 'Contraseña', 'value' => '']) ?>
                     <div class="row">
                         <div class="col-xs-4 pull-right">

@@ -26,7 +26,7 @@
                 <div class="box-body">
                     <div class="col-sm-6">
                         <?php
-                            echo $this->Form->input('name', ['class' => 'form-control', 'label' => 'Nombre', 'placeholder' => 'Nombre', 'autofocus']);
+                            echo $this->Form->input('name', ['class' => 'form-control', 'label' => 'Nombre', 'placeholder' => 'Nombre']);
                             echo $this->Form->input('last_name', ['class' => 'form-control', 'label' => 'Apellido', 'placeholder' => 'Apellido']);
                             echo $this->Form->input('email', ['class' => 'form-control', 'label' => 'Email', 'placeholder' => 'correo@ejemplo.com']);
                             echo $this->Form->input('confirm_password', ['type' => 'password', 'class' => 'form-control', 'label' => 'Confirmar con contraseña', 'placeholder' => 'Confirmar con contraseña', 'value' => '', 'maxlength' => 60, 'required']);

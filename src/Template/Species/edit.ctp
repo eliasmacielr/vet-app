@@ -26,7 +26,7 @@
                 <div class="box-body">
                     <div class="col-sm-6">
                         <?php
-                            echo $this->Form->input('name', ['class' => 'form-control', 'label' => 'Nombre', 'placeholder' => 'Nombre', 'autofocus']);
+                            echo $this->Form->input('name', ['class' => 'form-control', 'label' => 'Nombre', 'placeholder' => 'Nombre']);
                         ?>
                     </div>
                 </div><!-- /.box-body -->

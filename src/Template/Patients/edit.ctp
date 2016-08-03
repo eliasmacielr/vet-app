@@ -55,7 +55,7 @@
                 <div class="box-body">
                     <div class="col-sm-6">
                         <?php
-                            echo $this->Form->input('name', ['class' => 'form-control', 'label' => 'Nombre', 'placeholder' => 'Nombre', 'autofocus']);
+                            echo $this->Form->input('name', ['class' => 'form-control', 'label' => 'Nombre', 'placeholder' => 'Nombre']);
                             echo $this->Form->input('sex', ['class' => 'form-control', 'label' => 'Sexo', 'empty' => 'Seleccione el sexo', 'options' => ['male' => 'Macho', 'female' => 'Hembra'], ]);
                             echo $this->Form->input('customer_id', ['class' => 'form-control', 'label' => 'Propietario', 'empty' => 'Seleccione propietario']);
                             echo $this->Form->input('breed_id', ['class' => 'form-control', 'label' => 'Raza', 'empty' => 'Seleccione raza']);

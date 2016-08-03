@@ -53,8 +53,8 @@
                     <div class="col-sm-6">
                         <?php
                             echo $this->Form->input('type', ['class' => 'form-control', 'label' => 'Tipo', 'empty' => 'Seleccione tipo', 'options' => ['income' => 'Entrada', 'outcome' => 'Salida']]);
-                            echo $this->Form->input('concept', ['class' => 'form-control', 'label' => 'Concepto', 'placeholder' => 'Concepto', 'autofocus']);
-                            echo $this->Form->input('amount', ['class' => 'form-control', 'label' => 'Monto', 'placeholder' => 'Monto', 'autofocus']);
+                            echo $this->Form->input('concept', ['class' => 'form-control', 'label' => 'Concepto', 'placeholder' => 'Concepto']);
+                            echo $this->Form->input('amount', ['class' => 'form-control', 'label' => 'Monto', 'placeholder' => 'Monto']);
                         ?>
                     </div>
                     <div class="col-sm-6">

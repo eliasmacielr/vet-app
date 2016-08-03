@@ -46,7 +46,7 @@
                 <div class="box-body">
                     <div class="col-sm-8">
                         <?php
-                            echo $this->Form->input('title', ['class' => 'form-control', 'label' => 'Título', 'autofocus']);
+                            echo $this->Form->input('title', ['class' => 'form-control', 'label' => 'Título']);
                         ?>
                     </div>
                     <div class="col-sm-4">

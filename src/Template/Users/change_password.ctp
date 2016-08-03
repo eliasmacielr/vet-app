@@ -26,7 +26,7 @@
                 <div class="box-body">
                     <div class="col-sm-6">
                         <?php
-                            echo $this->Form->input('old_password', ['type' => 'password', 'class' => 'form-control', 'label' => 'Contraseña actual', 'placeholder' => 'Contraseña Actual', 'value' => '', 'maxlength' => 60, 'required', 'autofocus']);
+                            echo $this->Form->input('old_password', ['type' => 'password', 'class' => 'form-control', 'label' => 'Contraseña actual', 'placeholder' => 'Contraseña Actual', 'value' => '', 'maxlength' => 60, 'required']);
                             echo $this->Form->input('password', ['type' => 'password', 'class' => 'form-control', 'label' => 'Nueva contraseña', 'placeholder' => 'Nueva contraseña', 'value' => '', 'maxlength' => 60, 'required']);
                             echo $this->Form->input('repeat_new_password', ['type' => 'password', 'class' => 'form-control', 'label' => 'Repetir contraseña', 'placeholder' => 'Repetir contraseña', 'value' => '', 'maxlength' => 60, 'required']);
                         ?>
