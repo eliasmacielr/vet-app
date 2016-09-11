@@ -1,19 +1,14 @@
 <?php
 namespace App\Controller;
 
-use App\Controller\AppController;
-
 /**
  * Users Controller
- *
  * @property \App\Model\Table\UsersTable $Users
  */
 class UsersController extends AppController
 {
-
     /**
      * Index method
-     *
      * @return \Cake\Network\Response|null
      */
     public function index()
@@ -23,8 +18,7 @@ class UsersController extends AppController
     }
 
     /**
-     * View method
-     *
+     * View method.
      * @param string|null $id User id.
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
@@ -37,7 +31,6 @@ class UsersController extends AppController
 
     /**
      * Add method
-     *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
     public function add()
@@ -47,6 +40,7 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
                 $this->Flash->success('El usuario ha sido guardado');
+
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error('El usuario no ha sido guardado, intente de nuevo');
@@ -57,7 +51,6 @@ class UsersController extends AppController
 
     /**
      * Edit method
-     *
      * @param string|null $id User id.
      * @return \Cake\Network\Response|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
@@ -72,6 +65,7 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
                 $this->Flash->success('El usuario ha sido modificado');
+
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error('No se pudo modificar el usuario, intente de nuevo');
@@ -82,9 +76,8 @@ class UsersController extends AppController
 
     /**
      * Delete method
-     *
      * @param string|null $id User id.
-     * @return \Cake\Network\Response|null Redirects to index.
+     * @return \Cake\Network\Response|null Redirects to index
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
@@ -96,6 +89,7 @@ class UsersController extends AppController
         } else {
             $this->Flash->error('No se ha podido eliminar el cliente, intente de nuevo');
         }
+
         return $this->redirect(['action' => 'index']);
     }
 
@@ -110,6 +104,7 @@ class UsersController extends AppController
             if ($this->Users->save($user)) {
                 $this->Auth->setUser($user->toArray());
                 $this->Flash->success('Contraseña actualizada');
+
                 return $this->redirect($this->request->referer());
             } else {
                 $this->Flash->error('La contraseña no ha sido actualizada, intente de nuevo');
@@ -129,6 +124,7 @@ class UsersController extends AppController
             if ($this->Users->save($user)) {
                 $this->Auth->setUser($user->toArray());
                 $this->Flash->success('Perfil actualizado');
+
                 return $this->redirect($this->request->referer());
             } else {
                 $this->Flash->error('El perfil no ha sido actualizado, intente de nuevo');
