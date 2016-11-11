@@ -36,10 +36,12 @@ class AppView extends View
      */
     public function initialize()
     {
+        // Set form template
         $this->loadHelper('Form', [
             'templates' => 'app_form',
         ]);
 
+        // Set custom query url parameters
         $this->Paginator->options([
             'url' => [
                 'limit' => $this->request->query('limit')

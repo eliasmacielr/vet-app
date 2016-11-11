@@ -54,7 +54,7 @@
                     <?= $this->Html->link('Agregar', ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
                     <?= $this->Form->create(null, ['url' => ['action' => 'index'], 'type' => 'get', 'class' => 'form-inline pull-right']) ?>
                         <div class="input-group">
-                            <?= $this->form->select('limit', ['10' => '10', '25' => '25', '50' => '50', '100' => '100'], ['class' => 'form-control input-sm pull-right', 'value' => h($this->request->query('limit'))]) ?>
+                            <?= $this->form->select('limit', ['10' => '10', '25' => '25', '50' => '50', '100' => '100'], ['class' => 'form-control input-sm pull-right', 'value' => strcmp($this->request->query('limit'), '50') === 0 ? h($this->request->query('limit')) : '50']) ?>
                         </div>
                         <div style="width: 150px;" class="input-group">
                             <input type="text" placeholder="<?= ucfirst(__('search')) ?>" class="form-control input-sm pull-right" name="q" value="<?= h($this->request->query('q')) ?>">
