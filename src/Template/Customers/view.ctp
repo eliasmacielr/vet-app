@@ -95,7 +95,7 @@
                     <h3 class="box-title">Pacientes</h3>
                 </div><!-- /.box-header -->
                 <div class="box-header with-border">
-                    <?= $this->Html->link('Agregar', ['controller' => 'Patients', 'action' => 'add', 'customer_id' => $customer->id], ['class' => 'btn btn-primary']) ?>
+                    <a class="btn btn-primary" href="<?= $this->Url->build(['controller' => 'Patients', 'action' => 'add', 'customer_id' => $customer->id]) ?>"><span class="glyphicon glyphicon-plus"></span> Agregar</a>
                     <?= $this->Form->create(null, ['url' => ['action' => 'view', 'id' => $customer->id], 'type' => 'get', 'class' => 'form-inline pull-right']) ?>
                         <div class="input-group">
                             <?= $this->form->select('limit', ['10' => '10', '25' => '25', '50' => '50', '100' => '100'], ['class' => 'form-control input-sm pull-right', 'value' => h($this->request->query('limit'))]) ?>
@@ -128,11 +128,11 @@
                                     <td><?= h($patient->sex === 'male' ? 'Macho' : 'Hembra') ?></td>
                                     <td><?= h($patient->breed->name) ?></td>
                                     <td>
-                                        <a href="<?= $this->Url->build(['controller' => 'Patients', 'action' => 'view', 'id' => $patient->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                        <a href="<?= $this->Url->build(['controller' => 'Patients', 'action' => 'edit', 'id' => $patient->id, 'customer_id' => $customer->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                        <a href="<?= $this->Url->build(['controller' => 'Patients', 'action' => 'view', 'id' => $patient->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Ver</a>
+                                        <a href="<?= $this->Url->build(['controller' => 'Patients', 'action' => 'edit', 'id' => $patient->id, 'customer_id' => $customer->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar</a>
                                         <?= $this->Form->create(null, ['url' => ['controller' => 'Patients', 'action' => 'delete', 'id' => $patient->id, 'customer_id' => $customer->id], 'type' => 'delete', 'style' => 'display: inline !important']) ?>
                                         <button name="delete-btn" class="btn btn-danger" type="button">
-                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Borrar
                                         </button>
                                         <?= $this->Form->end() ?>
                                     </td>

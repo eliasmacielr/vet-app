@@ -41,7 +41,7 @@
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <?= $this->Html->link('Agregar', ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
+                    <a class="btn btn-primary" href="<?= $this->Url->build(['action' => 'add']) ?>"><span class="glyphicon glyphicon-plus"></span> Agregar</a>
                     <?= $this->Form->create(null, ['url' => ['action' => 'index'], 'type' => 'get', 'class' => 'form-inline pull-right']) ?>
                         <div class="input-group">
                             <?= $this->form->select('limit', ['10' => '10', '25' => '25', '50' => '50', '100' => '100'], ['class' => 'form-control input-sm pull-right', 'value' => h($this->request->query('limit'))]) ?>
@@ -74,11 +74,11 @@
                                     <td><?= h($customer->last_name) ?></td>
                                     <td><?= h($customer->phone) ?></td>
                                     <td>
-                                        <a href="<?= $this->Url->build(['action' => 'view', 'id' => $customer->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                        <a href="<?= $this->Url->build(['action' => 'edit', 'id' => $customer->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                        <a href="<?= $this->Url->build(['action' => 'view', 'id' => $customer->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Ver</a>
+                                        <a href="<?= $this->Url->build(['action' => 'edit', 'id' => $customer->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar</a>
                                         <?= $this->Form->create(null, ['url' => ['action' => 'delete', 'id' => $customer->id], 'type' => 'delete', 'style' => 'display: inline !important']) ?>
                                         <button name="delete-btn" class="btn btn-danger" type="button">
-                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Borrar
                                         </button>
                                         <?= $this->Form->end() ?>
                                     </td>

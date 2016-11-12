@@ -51,7 +51,7 @@
                                     <td><?= h($vaccination->vaccine->name) ?></td>
                                     <td><?= h($vaccination->patient->name) ?></td>
                                     <td>
-                                        <a href="<?= $this->Url->build(['controller' => 'Patients', 'action' => 'view', 'id' => $vaccination->patient->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                        <a href="<?= $this->Url->build(['controller' => 'Patients', 'action' => 'view', 'id' => $vaccination->patient->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Ver ficha</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

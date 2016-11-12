@@ -95,7 +95,7 @@
                     <h3 class="box-title">Vacunaciones</h3>
                 </div><!-- /.box-header -->
                 <div class="box-header with-border">
-                    <?= $this->Html->link('Agregar', ['controller' => 'Vaccinations', 'action' => 'add', 'patient_id' => $patient->id], ['class' => 'btn btn-primary']) ?>
+                    <a class="btn btn-primary" href="<?= $this->Url->build(['controller' => 'Vaccinations', 'action' => 'add', 'patient_id' => $patient->id]) ?>"><span class="glyphicon glyphicon-plus"></span> Agregar</a>
                     <?= $this->Form->create(null, ['url' => ['action' => 'view', 'id' => $patient->id], 'type' => 'get', 'class' => 'form-inline pull-right']) ?>
                         <div class="input-group">
                             <?= $this->form->select('limit', ['10' => '10', '25' => '25', '50' => '50', '100' => '100'], ['class' => 'form-control input-sm pull-right', 'value' => h($this->request->query('limit'))]) ?>
@@ -136,10 +136,10 @@
                                         <?php endif; ?>
                                     </td>
                                     <td>
-                                        <a href="<?= $this->Url->build(['controller' => 'Vaccinations', 'action' => 'edit', 'id' => $vaccination->id, 'patient_id' => $patient->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                        <a href="<?= $this->Url->build(['controller' => 'Vaccinations', 'action' => 'edit', 'id' => $vaccination->id, 'patient_id' => $patient->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar</a>
                                         <?= $this->Form->create(null, ['url' => ['controller' => 'Vaccinations', 'action' => 'delete', 'id' => $vaccination->id, 'patient_id' => $patient->id], 'type' => 'delete', 'style' => 'display: inline !important']) ?>
                                         <button name="delete-btn" class="btn btn-danger" type="button">
-                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Borrar
                                         </button>
                                         <?= $this->Form->end() ?>
                                     </td>

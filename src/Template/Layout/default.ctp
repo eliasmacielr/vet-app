@@ -68,7 +68,7 @@
 
                 </div>
                 <!-- Default to the left -->
-                <strong>Vet APP &copy; <?= date('Y') ?>
+                <strong>Vet APP &copy; <?= date('Y') ?></strong>
             </footer>
         </div><!-- ./wrapper -->
         <!-- REQUIRED JS SCRIPTS -->
