@@ -155,10 +155,10 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="balance"><?= $this->Number->format($sumResult->income) ?></td>
-                                        <td class="balance"><?= $this->Number->format($sumResult->outcome) ?></td>
+                                        <td class="balance"><?= $this->Number->format($sum_result->income) ?></td>
+                                        <td class="balance"><?= $this->Number->format($sum_result->outcome) ?></td>
                                         <td>
-                                            <p class="balance balance-<?= $sumResult->income - $sumResult->outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($sumResult->income - $sumResult->outcome) ?></p>
+                                            <p class="balance balance-<?= $sum_result->income - $sum_result->outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($sum_result->income - $sum_result->outcome) ?></p>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -25,9 +25,9 @@ class MovementsController extends AppController
 
         $query = $this->Movements->findByMovementDate($date);
         $movements = $this->paginate($query);
-        $sumResult = $this->Movements->find('totalSumByDate', ['date' => $date])->first();
+        $sum_result = $this->Movements->find('totalSumByDate', ['date' => $date])->first();
 
-        $this->set(compact('movements', 'date', 'sumResult', 'resume'));
+        $this->set(compact('movements', 'date', 'sum_result', 'resume'));
     }
 
     /**

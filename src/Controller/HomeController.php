@@ -28,11 +28,11 @@ class HomeController extends AppController
      */
     public function index()
     {
-        $countCustomers = $this->Customers->find()->count();
-        $countPatients = $this->Patients->find()->count();
-        $countExpiredToday = $this->Vaccinations->find('expiredToday')->count();
-        $countTotalExpired = $this->Vaccinations->find('totalExpired')->count();
+        $customers_count = $this->Customers->find()->count();
+        $patients_count = $this->Patients->find()->count();
+        $expired_today_count = $this->Vaccinations->find('expiredToday')->count();
+        $total_expired_count = $this->Vaccinations->find('totalExpired')->count();
 
-        $this->set(compact('countCustomers', 'countPatients', 'countExpiredToday', 'countTotalExpired'));
+        $this->set(compact('customers_count', 'patients_count', 'expired_today_count', 'total_expired_count'));
     }
 }

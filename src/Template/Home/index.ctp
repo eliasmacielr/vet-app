@@ -15,7 +15,7 @@
         <div class="col-lg-6 col-xs-12">
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3><?= $countCustomers ?></h3>
+                    <h3><?= $customers_count ?></h3>
                     <p>Clientes</p>
                 </div>
                 <div class="icon">
@@ -27,7 +27,7 @@
         <div class="col-lg-6 col-xs-12">
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3><?= $countPatients ?></h3>
+                    <h3><?= $patients_count ?></h3>
                     <p>Pacientes</p>
                 </div>
                 <div class="icon">
@@ -41,7 +41,7 @@
         <div class="col-lg-6 col-xs-12">
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3><?= $countExpiredToday ?></h3>
+                    <h3><?= $expired_today_count ?></h3>
                     <p>Vacunas vencidas hoy</p>
                 </div>
                 <div class="icon">
@@ -53,7 +53,7 @@
         <div class="col-lg-6 col-xs-12">
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3><?= $countTotalExpired ?></h3>
+                    <h3><?= $total_expired_count ?></h3>
                     <p>Vacunas vencidas</p>
                 </div>
                 <div class="icon">
