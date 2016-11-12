@@ -1,6 +1,7 @@
 <?php $this->assign('title-meta', 'Vet APP - Movimientos') ?>
 
 <?php $this->append('css') ?>
+    <?= $this->Html->css('vet-app') ?>
     <style>
         .center-table
         {
@@ -109,12 +110,12 @@
                             <?php foreach ($movements as $movement): ?>
                                 <tr>
                                     <td><?= h($movement->concept) ?></td>
-                                    <td style="text-align: right">
+                                    <td class="balance">
                                         <?php if ($movement->type == 'income'): ?>
                                             <?= $this->Number->format($movement->amount) ?>
                                         <?php endif; ?>
                                     </td>
-                                    <td style="text-align: right">
+                                    <td class="balance">
                                         <?php if ($movement->type == 'outcome'): ?>
                                             <?= $this->Number->format($movement->amount) ?>
                                         <?php endif; ?>
@@ -154,14 +155,10 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td style="text-align: right"><?= $this->Number->format($sumResult->income) ?></td>
-                                        <td style="text-align: right"><?= $this->Number->format($sumResult->outcome) ?></td>
-                                        <td style="text-align: right">
-                                            <?php if ($sumResult->income - $sumResult->outcome >= 0): ?>
-                                                <p style="color: #008305"><?= $this->Number->format($sumResult->income - $sumResult->outcome) ?></p>
-                                            <?php else: ?>
-                                                <p style="color: #ff0000"><?= $this->Number->format($sumResult->income - $sumResult->outcome) ?></p>
-                                            <?php endif; ?>
+                                        <td class="balance"><?= $this->Number->format($sumResult->income) ?></td>
+                                        <td class="balance"><?= $this->Number->format($sumResult->outcome) ?></td>
+                                        <td>
+                                            <p class="balance balance-<?= $sumResult->income - $sumResult->outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($sumResult->income - $sumResult->outcome) ?></p>
                                         </td>
                                     </tr>
                                 </tbody>

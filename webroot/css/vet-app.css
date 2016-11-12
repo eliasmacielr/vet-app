@@ -1,0 +1,11 @@
+.balance {
+    text-align: right;
+}
+
+.balance-positive {
+    color: #008305;
+}
+
+.balance-negative {
+    color: #ff0000;
+}

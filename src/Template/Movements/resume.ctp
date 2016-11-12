@@ -1,6 +1,7 @@
 <?php $this->assign('title-meta', 'Vet APP - Movimientos resumen') ?>
 
 <?php $this->append('css') ?>
+    <?= $this->Html->css('vet-app') ?>
     <style>
         .center-table
         {
@@ -43,7 +44,7 @@
                                 'minYear' => 2000,
                                 'maxYear' => 2099,
                                 'orderYear' => 'asc',
-                                'value' => $date->format('Y')
+                                'value' => $date->format('Y'),
                             ]);
                         ?>
                         <div class="input-group-btn">
@@ -59,6 +60,7 @@
                                 <th>Mes</th>
                                 <th>Entrada</th>
                                 <th>Salida</th>
+                                <th>Diferencia</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,92 +68,104 @@
                                 <td>
                                     Enero
                                 </td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->jan_income) ?></td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->jan_outcome) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->jan_income) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->jan_outcome) ?></td>
+                                <td class="balance balance-<?= $resume->jan_income - $resume->jan_outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($resume->jan_income - $resume->jan_outcome) ?></td>
                             </tr>
                             <tr>
                                 <td>
                                     Febrero
                                 </td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->feb_income) ?></td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->feb_outcome) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->feb_income) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->feb_outcome) ?></td>
+                                <td class="balance balance-<?= $resume->feb_income - $resume->feb_outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($resume->feb_income - $resume->feb_outcome) ?></td>
                             </tr>
                             <tr>
                                 <td>
                                     Marzo
                                 </td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->mar_income) ?></td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->mar_outcome) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->mar_income) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->mar_outcome) ?></td>
+                                <td class="balance balance-<?= $resume->mar_income - $resume->mar_outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($resume->mar_income - $resume->mar_outcome) ?></td>
                             </tr>
                             <tr>
                                 <td>
                                     Abril
                                 </td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->apr_income) ?></td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->apr_outcome) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->apr_income) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->apr_outcome) ?></td>
+                                <td class="balance balance-<?= $resume->apr_income - $resume->apr_outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($resume->apr_income - $resume->apr_outcome) ?></td>
                             </tr>
                             <tr>
                                 <td>
                                     Mayo
                                 </td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->may_income) ?></td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->may_outcome) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->may_income) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->may_outcome) ?></td>
+                                <td class="balance balance-<?= $resume->may_income - $resume->may_outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($resume->may_income - $resume->may_outcome) ?></td>
                             </tr>
                             <tr>
                                 <td>
                                     Junio
                                 </td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->june_income) ?></td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->june_outcome) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->june_income) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->june_outcome) ?></td>
+                                <td class="balance balance-<?= $resume->june_income - $resume->june_outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($resume->june_income - $resume->june_outcome) ?></td>
                             </tr>
                             <tr>
                                 <td>
                                     Julio
                                 </td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->july_income) ?></td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->july_outcome) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->july_income) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->july_outcome) ?></td>
+                                <td class="balance balance-<?= $resume->july_income - $resume->july_outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($resume->july_income - $resume->july_outcome) ?></td>
                             </tr>
                             <tr>
                                 <td>
                                     Agosto
                                 </td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->aug_income) ?></td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->aug_outcome) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->aug_income) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->aug_outcome) ?></td>
+                                <td class="balance balance-<?= $resume->aug_income - $resume->aug_outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($resume->aug_income - $resume->aug_outcome) ?></td>
                             </tr>
                             <tr>
                                 <td>
                                     Setiembre
                                 </td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->sept_income) ?></td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->sept_outcome) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->sept_income) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->sept_outcome) ?></td>
+                                <td class="balance balance-<?= $resume->sept_income - $resume->sept_outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($resume->sept_income - $resume->sept_outcome) ?></td>
                             </tr>
                             <tr>
                                 <td>
                                     Octubre
                                 </td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->oct_income) ?></td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->oct_outcome) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->oct_income) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->oct_outcome) ?></td>
+                                <td class="balance balance-<?= $resume->oct_income - $resume->oct_outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($resume->oct_income - $resume->oct_outcome) ?></td>
                             </tr>
                             <tr>
                                 <td>
                                     Noviembre
                                 </td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->nov_income) ?></td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->nov_outcome) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->nov_income) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->nov_outcome) ?></td>
+                                <td class="balance balance-<?= $resume->nov_income - $resume->nov_outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($resume->nov_income - $resume->nov_outcome) ?></td>
                             </tr>
                             <tr>
                                 <td>
                                     Diciembre
                                 </td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->dec_income) ?></td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->dec_outcome) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->dec_income) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->dec_outcome) ?></td>
+                                <td class="balance balance-<?= $resume->dec_income - $resume->dec_outcome >= 0 ? 'positive' : 'negative' ?>"><?= $this->Number->format($resume->dec_income - $resume->dec_outcome) ?></td>
                             </tr>
                             <tr>
                                 <td>
                                     Total
                                 </td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->total_income) ?></td>
-                                <td style="text-align: right"><?= $this->Number->format($resume->total_outcome) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->total_income) ?></td>
+                                <td class="balance"><?= $this->Number->format($resume->total_outcome) ?></td>
                             </tr>
                     </table>
                 </div><!-- /.box-body -->
@@ -167,12 +181,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td style="text-align: right">
-                                        <?php if ($resume->total_income - $resume->total_outcome >= 0): ?>
-                                            <p style="color: #008305"><?= $this->Number->format($resume->total_income - $resume->total_outcome) ?></p>
-                                        <?php else: ?>
-                                            <p style="color: #ff0000"><?= $this->Number->format($resume->total_income - $resume->total_outcome) ?></p>
-                                        <?php endif; ?>
+                                    <td>
+                                        <p class="balance balance-<?= $resume->total_income - $resume->total_outcome >= 0 ? 'positive' : 'negative'?>"><?= $this->Number->format($resume->total_income - $resume->total_outcome) ?></p>
                                     </td>
                                 </tr>
                             </tbody>
