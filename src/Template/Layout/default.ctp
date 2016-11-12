@@ -54,7 +54,7 @@
                 </nav>
             </header>
             <!-- Left side column. contains the logo and sidebar -->
-            <?= $this->element('leftsidebar') ?>
+            <?= $this->cell('LeftMenu') ?>
             <!-- Control Sidebar -->
             <div class = "content-wrapper">
                 <?= $this->Flash->render() ?>
@@ -81,6 +81,7 @@
         <?= $this->Html->script('/adminlte/dist/js/app.min.js') ?>
         <?= $this->Html->script('/adminlte/plugins/fastclick/fastclick.min.js') ?>
         <?= $this->Html->script('/adminlte/plugins/slimScroll/jquery.slimscroll.min.js') ?>
+        <?= $this->Html->script('js-cookie/js.cookie.min') ?>
         <?= $this->fetch('js') ?>
     </body>
 </html>
