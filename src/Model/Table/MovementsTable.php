@@ -1,24 +1,20 @@
 <?php
+
 namespace App\Model\Table;
 
-use App\Model\Entity\Movement;
 use Cake\ORM\Query;
-use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Movements Model
- *
+ * Movements Model.
  */
 class MovementsTable extends Table
 {
-
     /**
-     * Initialize method
+     * Initialize method.
      *
-     * @param array $config The configuration for the Table.
-     * @return void
+     * @param array $config The configuration for the Table
      */
     public function initialize(array $config)
     {
@@ -34,7 +30,8 @@ class MovementsTable extends Table
     /**
      * Default validation rules.
      *
-     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @param \Cake\Validation\Validator $validator Validator instance
+     *
      * @return \Cake\Validation\Validator
      */
     public function validationDefault(Validator $validator)
@@ -61,53 +58,64 @@ class MovementsTable extends Table
     }
 
     /**
-     * Make a query to search movements in a specific month of a year
+     * Make a query to search movements in a specific month of a year.
      *
      * @param \Cake\ORM\Query $query
-     * @param array $options
+     * @param array           $options
+     *
      * @return \Cake\ORM\Query
      */
     public function findSearchByMonth(Query $query, array $options)
     {
         return $query->where(
             $query->newExpr()
-                ->add('EXTRACT(MONTH FROM ' . $this->aliasField('movement_date') . ') = :month'))
+                ->add('EXTRACT(MONTH FROM '.$this->aliasField('movement_date').') = :month'))
         ->bind(':month', $options['date']->format('m'), 'integer');
     }
 
     /**
-     * Make a query to search movements in a specific a year
+     * Make a query to search movements in a specific a year.
      *
      * @param \Cake\ORM\Query $query
-     * @param array $options
+     * @param array           $options
+     *
      * @return \Cake\ORM\Query
      */
     public function findSearchByYear(Query $query, array $options)
     {
         return $query->where(
             $query->newExpr()
-                ->add('EXTRACT(YEAR FROM ' . $this->aliasField('movement_date') . ') = :year'))
+                ->add('EXTRACT(YEAR FROM '.$this->aliasField('movement_date').') = :year'))
         ->bind(':year', $options['date']->format('Y'), 'integer');
     }
 
     /**
-     * Calculate total sum of all movements
+     * Calculate total sum of all movements.
      *
      * @param \Cake\ORM\Query $query
-     * @param array $options
+     * @param array           $options
+     *
      * @return \Cake\ORM\Query
      */
     public function findTotalSum(Query $query, array $options)
     {
         return $query->select([
             'income' => $query->func()->sum($query->newExpr()->add("CASE WHEN type = 'income' THEN Movements.amount ELSE 0 END")),
-            'outcome' => $query->func()->sum($query->newExpr()->add("CASE WHEN type = 'outcome' THEN Movements.amount ELSE 0 END"))
+            'outcome' => $query->func()->sum($query->newExpr()->add("CASE WHEN type = 'outcome' THEN Movements.amount ELSE 0 END")),
         ]);
     }
-
+    /**
+     * Calculate year resume sum by month.
+     *
+     * @param Query $query
+     * @param array $options
+     *
+     * @return \Cake\ORM\Query
+     */
     public function findYearResume(Query $query, array $options)
     {
         $query = $this->findSearchByYear($query, $options);
+
         return $query->select([
             'jan_income' => $query->func()->sum($query->newExpr()->add("CASE WHEN (type = 'income' AND EXTRACT(MONTH FROM Movements.movement_date) = 1) THEN Movements.amount ELSE 0 END")),
             'jan_outcome' => $query->func()->sum($query->newExpr()->add("CASE WHEN (type = 'outcome' AND EXTRACT(MONTH FROM Movements.movement_date) = 1) THEN Movements.amount ELSE 0 END")),
@@ -139,23 +147,26 @@ class MovementsTable extends Table
     }
 
     /**
-     * Calculate sum of movements by date
+     * Calculate sum of movements by date.
      *
      * @param \Cake\ORM\Query $query
-     * @param array $options
+     * @param array           $options
+     *
      * @return \Cake\ORM\Query
      */
     public function findTotalSumByDate(Query $query, array $options)
     {
         $query = $this->findTotalSum($query, $options);
+
         return $query->where(['movement_date' => $options['date']]);
     }
 
     /**
-     * Calculate sum of movements by a month
+     * Calculate sum of movements by a month.
      *
      * @param \Cake\ORM\Query $query
-     * @param array $options
+     * @param array           $options
+     *
      * @return \Cake\ORM\Query
      */
     public function findTotalSumByMonth(Query $query, array $options)
@@ -163,20 +174,23 @@ class MovementsTable extends Table
         $query = $this->findTotalSum($query, $options);
         $query = $this->findSearchByMonth($query, $options);
         $query = $this->findSearchByYear($query, $options);
+
         return $query;
     }
 
     /**
-     * Calculate sum of movements by a year
+     * Calculate sum of movements by a year.
      *
      * @param \Cake\ORM\Query $query
-     * @param array $options
+     * @param array           $options
+     *
      * @return \Cake\ORM\Query
      */
     public function findTotalSumByYear(Query $query, array $options)
     {
         $query = $this->findTotalSum($query, $options);
         $query = $this->findSearchByYear($query, $options);
+
         return $query;
     }
 }

@@ -23,6 +23,7 @@
             <li class="header">Movimientos</li>
             <li <?= $controller === 'Movements' && $action === 'index' ? 'class="active"' : '' ?>><a href="<?= $this->Url->build(['controller' => 'Movements', 'action' => 'index']) ?>"><i class="fa fa-money"></i> <span>Diario</span></a></li>
             <li <?= $controller === 'Movements' && $action === 'resume' ? 'class="active"' : '' ?>><a href="<?= $this->Url->build(['controller' => 'Movements', 'action' => 'resume']) ?>"><i class="fa fa-money"></i> <span>Anual</span></a></li>
+            <li <?= $controller === 'Movements' && $action === 'showChart' ? 'class="active"' : '' ?>><a href="<?= $this->Url->build(['controller' => 'Movements', 'action' => 'showChart']) ?>"><i class="fa fa-money"></i> <span>Gráfico Anual</span></a></li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
