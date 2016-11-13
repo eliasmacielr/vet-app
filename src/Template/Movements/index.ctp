@@ -69,7 +69,7 @@
                     <div class="input-group pull-right">
                         <?php echo $this->form->day('date', [
                                 'class' => 'form-control input-sm',
-                                'style' => 'width: 50px',
+                                'style' => 'width: 60px',
                                 'empty' => false,
                                 'value' => $date->format('d')
                             ])
