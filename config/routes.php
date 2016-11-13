@@ -127,6 +127,7 @@ Router::scope('/', function (RouteBuilder $routes) {
         $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
         $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
         $routes->connect('/resume', ['action' => 'resume']);
+        $routes->connect('/show-chart', ['action' => 'show-chart']);
     });
 
     $routes->scope('/users', ['controller' => 'Users'], function (RouteBuilder $routes) {

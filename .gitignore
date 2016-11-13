@@ -30,3 +30,6 @@
 #-------------------------
 /nbproject/
 .idea/*
+
+# htaccess
+.htaccess

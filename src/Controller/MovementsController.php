@@ -133,35 +133,7 @@ class MovementsController extends AppController
     {
         $date = new DateTime($this->request->query('date')['year'].'-1-1');
         $resume = $this->Movements->find('yearResume', ['date' => $date])->first();
-        $income = [
-            $resume->jan_income,
-            $resume->feb_income,
-            $resume->mar_income,
-            $resume->apr_income,
-            $resume->may_income,
-            $resume->june_income,
-            $resume->july_income,
-            $resume->aug_income,
-            $resume->sept_income,
-            $resume->oct_income,
-            $resume->nov_income,
-            $resume->dec_income,
-        ];
 
-        $outcome = [
-            $resume->jan_outcome,
-            $resume->feb_outcome,
-            $resume->mar_outcome,
-            $resume->apr_outcome,
-            $resume->may_outcome,
-            $resume->june_outcome,
-            $resume->july_outcome,
-            $resume->aug_outcome,
-            $resume->sept_outcome,
-            $resume->oct_outcome,
-            $resume->nov_outcome,
-            $resume->dec_outcome,
-        ];
         $this->set(compact('date', 'resume'));
     }
 }
