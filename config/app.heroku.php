@@ -38,10 +38,8 @@ return [
      */
     'App' => [
         'namespace' => 'App',
-        // 'encoding' => env('APP_ENCODING', 'UTF-8'),
-        'encoding' => 'UTF-8',
-        // 'defaultLocale' => env('APP_DEFAULT_LOCALE', 'es_PY'),
-        'defaultLocale' => 'es_PY',
+        'encoding' => env('APP_ENCODING', 'UTF-8'),
+        'defaultLocale' => env('APP_DEFAULT_LOCALE', 'es_PY'),
         'base' => false,
         'dir' => 'src',
         'webroot' => 'webroot',
@@ -66,7 +64,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => env('SECURITY_SALT', '8c874038020591d28929467cef5431696c3eab37bfaa87084814221fb088b4ef'),
+        'salt' => env('SECURITY_SALT', 'd674b930cc1b8eae8c9baefc810f6b287243bc94ebb92975f37e5d2f8f162a9e'),
     ],
 
     /**
@@ -221,16 +219,16 @@ return [
             'className' => 'Cake\Database\Connection',
             'driver' => 'Cake\Database\Driver\Postgres',
             'persistent' => false,
-            'host' => 'ec2-184-73-222-90.compute-1.amazonaws.com',
+            'host' => 'ec2-54-243-60-62.compute-1.amazonaws.com',
             /**
              * CakePHP will use the default DB port based on the driver selected
              * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
              * the following line and set the port accordingly
              */
-            'port' => '5432',
-            'username' => 'vhotzoibjtjgtw',
-            'password' => 'P4217_LAhq7vOgya0DmKVQ4p9V',
-            'database' => 'dfvf53tfvbc3ta',
+            //'port' => 'non_standard_port_number',
+            'username' => 'tkxddbgbzjcavy',
+            'password' => 'vpyR6foOXbaOOO6q5oyJzHvYRR',
+            'database' => 'd94t5op8dv97gn',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'flags' => [],
@@ -264,13 +262,13 @@ return [
          */
         'test' => [
             'className' => 'Cake\Database\Connection',
-            'driver' => 'Cake\Database\Driver\Postgres',
+            'driver' => 'Cake\Database\Driver\Mysql',
             'persistent' => false,
-            'host' => 'ec2-184-73-222-90.compute-1.amazonaws.com',
-            'port' => '5432',
-            'username' => 'vhotzoibjtjgtw',
-            'password' => 'P4217_LAhq7vOgya0DmKVQ4p9V',
-            'database' => 'dfvf53tfvbc3ta',
+            'host' => 'localhost',
+            //'port' => 'non_standard_port_number',
+            'username' => 'my_app',
+            'password' => 'secret',
+            'database' => 'test_myapp',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
@@ -340,6 +338,6 @@ return [
      * To use database sessions, load the SQL file located at config/Schema/sessions.sql
      */
     'Session' => [
-        'defaults' => 'cake',
+        'defaults' => 'php',
     ],
 ];
