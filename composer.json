@@ -11,6 +11,7 @@
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*",
         "friendsofcake/search": "^1.2",
+        "cakephp/debug_kit": "~3.2",
         "ext-sqlite3": "*"
     },
     "require-dev": {
