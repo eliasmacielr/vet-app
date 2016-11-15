@@ -21,5 +21,6 @@ class DatabaseSeed extends AbstractSeed
         $this->call('LocationsSeed');
         $this->call('CustomersSeed');
         $this->call('SpeciesSeed');
+        $this->call('UsersSeed');
     }
 }
