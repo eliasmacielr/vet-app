@@ -33,7 +33,7 @@ class LeftMenuCell extends Cell
         $this->loadModel('Vaccinations');
 
         // Logged user
-        $user = $this->request->session()->read('Auth.user');
+        $user = $this->request->session()->read('Auth.User');
 
         // Count registers
         $customers_count = $this->Customers->find()->count();

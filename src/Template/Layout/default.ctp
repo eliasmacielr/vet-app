@@ -50,7 +50,7 @@
                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                         <span class="sr-only">Toggle navigation</span>
                     </a>
-                    <?= $this->element('rightmenu') ?>
+                    <?= $this->cell('RightMenu') ?>
                 </nav>
             </header>
             <!-- Left side column. contains the logo and sidebar -->
