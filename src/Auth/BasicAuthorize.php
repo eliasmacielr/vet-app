@@ -19,8 +19,9 @@ class BasicAuthorize extends BaseAuthorize
     public function authorize($user, Request $request)
     {
         $controller = $request->params['controller'];
+        $action = $request->params['action'];
 
-        if (strcmp($controller, 'Users') === 0) {
+        if (strcmp($controller, 'Users') === 0 && in_array($action, ['index', 'view', 'add', 'edit', 'delete'])) {
             if (strcmp($user['group_name'], 'admin') !== 0) {
                 return false;
             }
