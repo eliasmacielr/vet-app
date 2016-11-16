@@ -4,6 +4,7 @@
 /config/app.php
 /config/Migrations/*.lock
 
+/tmp/*
 /tmp/cache/models/*
 !/tmp/cache/models/empty
 /tmp/cache/persistent/*
