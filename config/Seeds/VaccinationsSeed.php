@@ -22,7 +22,7 @@ class VaccinationsSeed extends AbstractSeed
             [
                 'vaccination_date' => date('Y-m-d H:i:s'),
                 'revaccination' => date('Y-m-d H:i:s', strtotime("+15 days")),
-                'revaccinated' => false,
+                'revaccinated' => "false",
                 'created' => date('Y-m-d H:i:s'),
                 'modified' => date('Y-m-d H:i:s'),
                 'vaccine_id' => 1,
