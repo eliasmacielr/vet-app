@@ -32,6 +32,9 @@ class LeftMenuCell extends Cell
         $this->loadModel('Users');
         $this->loadModel('Vaccinations');
 
+        // Logged user
+        $user = $this->request->session()->read('Auth.user');
+
         // Count registers
         $customers_count = $this->Customers->find()->count();
         $patients_count = $this->Patients->find()->count();
@@ -41,6 +44,6 @@ class LeftMenuCell extends Cell
         $controller = $this->request->params['controller'];
         $action = $this->request->params['action'];
 
-        $this->set(compact('controller', 'action', 'customers_count', 'patients_count', 'users_count', 'expired_count'));
+        $this->set(compact('controller', 'action', 'customers_count', 'patients_count', 'users_count', 'expired_count', 'user'));
     }
 }
