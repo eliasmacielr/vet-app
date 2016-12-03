@@ -33,4 +33,4 @@
 .idea/*
 
 # htaccess
-.htaccess
+/.htaccess
