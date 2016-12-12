@@ -50,112 +50,114 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     // $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-    $routes->connect('/', ['controller' => 'Home', 'action' => 'index']);
+    $routes->prefix('system', function ($routes){
+        $routes->connect('/', ['controller' => 'Home', 'action' => 'index']);
 
-    $routes->connect('/login', ['controller' => 'Auth', 'action' => 'login']);
-    $routes->connect('/logout', ['controller' => 'Auth', 'action' => 'logout']);
-    /**
-     * ...and connect the rest of 'Pages' controller's URLs.
-     */
-    // $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+        $routes->connect('/login', ['controller' => 'Auth', 'action' => 'login']);
+        $routes->connect('/logout', ['controller' => 'Auth', 'action' => 'logout']);
+        /**
+         * ...and connect the rest of 'Pages' controller's URLs.
+         */
+        // $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
-    $routes->scope('/locations', ['controller' => 'Locations'], function (RouteBuilder $routes) {
-        // $routes->extensions(['json', 'xml']);
-        $routes->connect('/', ['action' => 'index']);
-        $routes->connect('/add', ['action' => 'add']);
-        $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
-        $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
+        $routes->scope('/locations', ['controller' => 'Locations'], function (RouteBuilder $routes) {
+            // $routes->extensions(['json', 'xml']);
+            $routes->connect('/', ['action' => 'index']);
+            $routes->connect('/add', ['action' => 'add']);
+            $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
+            $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
+        });
+
+        $routes->scope('/customers', ['controller' => 'Customers'], function (RouteBuilder $routes) {
+            $routes->connect('/', ['action' => 'index']);
+            $routes->connect('/add', ['action' => 'add']);
+            $routes->connect('/view/:id', ['action' => 'view'], ['pass' => ['id'], 'id' => '[0-9]+']);
+            $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
+            $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
+        });
+
+        $routes->scope('/species', ['controller' => 'Species'], function (RouteBuilder $routes) {
+            $routes->connect('/', ['action' => 'index']);
+            $routes->connect('/add', ['action' => 'add']);
+            $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
+            $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
+        });
+
+       $routes->scope('/breeds', ['controller' => 'Breeds'], function (RouteBuilder $routes) {
+           $routes->connect('/', ['action' => 'index']);
+           $routes->connect('/add', ['action' => 'add']);
+           $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
+           $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
+        });
+
+        $routes->scope('/patients', ['controller' => 'Patients'], function (RouteBuilder $routes) {
+            $routes->connect('/', ['action' => 'index']);
+            $routes->connect('/add/:customer_id', ['action' => 'add'], ['pass' => ['customer_id'], 'customer_id' => '[0-9]+']);
+            $routes->connect('/add', ['action' => 'add']);
+            $routes->connect('/view/:id', ['action' => 'view'], ['pass' => ['id'], 'id' => '[0-9]+']);
+            $routes->connect('/edit/:id/:customer_id', ['action' => 'edit'], ['pass' => ['id', 'customer_id'], 'id' => '[0-9]+', 'customer_id' => '[0-9]+']);
+            $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
+            $routes->connect('/delete/:id/:customer_id', ['action' => 'delete'], ['pass' => ['id', 'customer_id'], 'id' => '[0-9]+', 'customer_id' => '[0-9]+']);
+            $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
+        });
+
+        $routes->scope('/vaccines', ['controller' => 'Vaccines'], function (RouteBuilder $routes) {
+            $routes->connect('/', ['action' => 'index']);
+            $routes->connect('/add', ['action' => 'add']);
+            $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
+            $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
+        });
+
+        $routes->scope('/vaccinations', ['controller' => 'Vaccinations'], function (RouteBuilder $routes) {
+            $routes->connect('/add/:patient_id', ['action' => 'add'], ['pass' => ['patient_id'], 'patient_id' => '[0-9]+']);
+            $routes->connect('/edit/:id/:patient_id', ['action' => 'edit'], ['pass' => ['id', 'patient_id'], 'id' => '[0-9]+', 'patient_id' => '[0-9]+']);
+            $routes->connect('/delete/:id/:patient_id', ['action' => 'delete'], ['pass' => ['id', 'patient_id'], 'id' => '[0-9]+', 'patient_id' => '[0-9]+']);
+            $routes->connect('/expired', ['action' => 'showExpired']);
+        });
+
+        $routes->scope('/observations', ['controller' => 'Observations'], function (RouteBuilder $routes) {
+            $routes->connect('/:patient_id', ['action' => 'index'], ['pass' => ['patient_id'], 'patient_id' => '[0-9]+']);
+            $routes->connect('/add/:patient_id', ['action' => 'add'], ['pass' => ['patient_id'], 'patient_id' => '[0-9]+']);
+            $routes->connect('/edit/:id/:patient_id', ['action' => 'edit'], ['pass' => ['id', 'patient_id'], 'id' => '[0-9]+', 'patient_id' => '[0-9]+']);
+            $routes->connect('/delete/:id/:patient_id', ['action' => 'delete'], ['pass' => ['id', 'patient_id'], 'id' => '[0-9]+', 'patient_id' => '[0-9]+']);
+        });
+
+        $routes->scope('/movements', ['controller' => 'Movements'], function (RouteBuilder $routes) {
+            $routes->connect('/', ['action' => 'index']);
+            $routes->connect('/add', ['action' => 'add']);
+            $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
+            $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
+            $routes->connect('/resume', ['action' => 'resume']);
+            $routes->connect('/show-chart', ['action' => 'show-chart']);
+        });
+
+        $routes->scope('/users', ['controller' => 'Users'], function (RouteBuilder $routes) {
+            $routes->connect('/', ['action' => 'index']);
+            $routes->connect('/add', ['action' => 'add']);
+            $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
+            $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
+            $routes->connect('/change-password', ['action' => 'changePassword']);
+            $routes->connect('/edit-profile', ['action' => 'editProfile']);
+        });
+
+        /**
+         * Connect catchall routes for all controllers.
+         *
+         * Using the argument `DashedRoute`, the `fallbacks` method is a shortcut for
+         *    `$routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'DashedRoute']);`
+         *    `$routes->connect('/:controller/:action/*', [], ['routeClass' => 'DashedRoute']);`
+         *
+         * Any route class can be used with this method, such as:
+         * - DashedRoute
+         * - InflectedRoute
+         * - Route
+         * - Or your own route class
+         *
+         * You can remove these routes once you've connected the
+         * routes you want in your application.
+         */
+        $routes->fallbacks(DashedRoute::class);
     });
-
-    $routes->scope('/customers', ['controller' => 'Customers'], function (RouteBuilder $routes) {
-        $routes->connect('/', ['action' => 'index']);
-        $routes->connect('/add', ['action' => 'add']);
-        $routes->connect('/view/:id', ['action' => 'view'], ['pass' => ['id'], 'id' => '[0-9]+']);
-        $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
-        $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
-    });
-
-    $routes->scope('/species', ['controller' => 'Species'], function (RouteBuilder $routes) {
-        $routes->connect('/', ['action' => 'index']);
-        $routes->connect('/add', ['action' => 'add']);
-        $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
-        $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
-    });
-
-   $routes->scope('/breeds', ['controller' => 'Breeds'], function (RouteBuilder $routes) {
-       $routes->connect('/', ['action' => 'index']);
-       $routes->connect('/add', ['action' => 'add']);
-       $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
-       $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
-    });
-
-    $routes->scope('/patients', ['controller' => 'Patients'], function (RouteBuilder $routes) {
-        $routes->connect('/', ['action' => 'index']);
-        $routes->connect('/add/:customer_id', ['action' => 'add'], ['pass' => ['customer_id'], 'customer_id' => '[0-9]+']);
-        $routes->connect('/add', ['action' => 'add']);
-        $routes->connect('/view/:id', ['action' => 'view'], ['pass' => ['id'], 'id' => '[0-9]+']);
-        $routes->connect('/edit/:id/:customer_id', ['action' => 'edit'], ['pass' => ['id', 'customer_id'], 'id' => '[0-9]+', 'customer_id' => '[0-9]+']);
-        $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
-        $routes->connect('/delete/:id/:customer_id', ['action' => 'delete'], ['pass' => ['id', 'customer_id'], 'id' => '[0-9]+', 'customer_id' => '[0-9]+']);
-        $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
-    });
-
-    $routes->scope('/vaccines', ['controller' => 'Vaccines'], function (RouteBuilder $routes) {
-        $routes->connect('/', ['action' => 'index']);
-        $routes->connect('/add', ['action' => 'add']);
-        $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
-        $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
-    });
-
-    $routes->scope('/vaccinations', ['controller' => 'Vaccinations'], function (RouteBuilder $routes) {
-        $routes->connect('/add/:patient_id', ['action' => 'add'], ['pass' => ['patient_id'], 'patient_id' => '[0-9]+']);
-        $routes->connect('/edit/:id/:patient_id', ['action' => 'edit'], ['pass' => ['id', 'patient_id'], 'id' => '[0-9]+', 'patient_id' => '[0-9]+']);
-        $routes->connect('/delete/:id/:patient_id', ['action' => 'delete'], ['pass' => ['id', 'patient_id'], 'id' => '[0-9]+', 'patient_id' => '[0-9]+']);
-        $routes->connect('/expired', ['action' => 'showExpired']);
-    });
-
-    $routes->scope('/observations', ['controller' => 'Observations'], function (RouteBuilder $routes) {
-        $routes->connect('/:patient_id', ['action' => 'index'], ['pass' => ['patient_id'], 'patient_id' => '[0-9]+']);
-        $routes->connect('/add/:patient_id', ['action' => 'add'], ['pass' => ['patient_id'], 'patient_id' => '[0-9]+']);
-        $routes->connect('/edit/:id/:patient_id', ['action' => 'edit'], ['pass' => ['id', 'patient_id'], 'id' => '[0-9]+', 'patient_id' => '[0-9]+']);
-        $routes->connect('/delete/:id/:patient_id', ['action' => 'delete'], ['pass' => ['id', 'patient_id'], 'id' => '[0-9]+', 'patient_id' => '[0-9]+']);
-    });
-
-    $routes->scope('/movements', ['controller' => 'Movements'], function (RouteBuilder $routes) {
-        $routes->connect('/', ['action' => 'index']);
-        $routes->connect('/add', ['action' => 'add']);
-        $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
-        $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
-        $routes->connect('/resume', ['action' => 'resume']);
-        $routes->connect('/show-chart', ['action' => 'show-chart']);
-    });
-
-    $routes->scope('/users', ['controller' => 'Users'], function (RouteBuilder $routes) {
-        $routes->connect('/', ['action' => 'index']);
-        $routes->connect('/add', ['action' => 'add']);
-        $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
-        $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
-        $routes->connect('/change-password', ['action' => 'changePassword']);
-        $routes->connect('/edit-profile', ['action' => 'editProfile']);
-    });
-
-    /**
-     * Connect catchall routes for all controllers.
-     *
-     * Using the argument `DashedRoute`, the `fallbacks` method is a shortcut for
-     *    `$routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'DashedRoute']);`
-     *    `$routes->connect('/:controller/:action/*', [], ['routeClass' => 'DashedRoute']);`
-     *
-     * Any route class can be used with this method, such as:
-     * - DashedRoute
-     * - InflectedRoute
-     * - Route
-     * - Or your own route class
-     *
-     * You can remove these routes once you've connected the
-     * routes you want in your application.
-     */
-    $routes->fallbacks(DashedRoute::class);
 });
 
 /**
