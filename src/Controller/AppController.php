@@ -53,22 +53,26 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        $this->loadComponent('Auth', [
-            'authorize' => 'Basic',
-            'authenticate' => [
-                'Form' => [
-                    'fields' => ['username' => 'email', 'password' => 'password'],
-                    'finder' => 'auth',
+        $prefix = isset($this->request->params['prefix']) ? $this->request->params['prefix'] : '';
+        if ($prefix === 'system') {
+            $this->loadComponent('Auth', [
+                'authorize' => 'Basic',
+                'authenticate' => [
+                    'Form' => [
+                        'fields' => ['username' => 'email', 'password' => 'password'],
+                        'finder' => 'auth',
+                    ],
                 ],
-            ],
-            'loginAction' => [
-                'controller' => 'Auth',
-                'action' => 'login',
-            ],
-            'flash' => [
-                'element' => 'auth',
-            ],
-        ]);
+                'loginAction' => [
+                    'controller' => 'Auth',
+                    'action' => 'login',
+                    'prefix' => 'system',
+                ],
+                'flash' => [
+                    'element' => 'auth',
+                ],
+            ]);
+        }
     }
 
     /**
