@@ -33,7 +33,7 @@
         <?= $this->Flash->render('auth') ?>
         <div class="login-box">
             <div class="login-logo">
-                <a href="<?= $this->Url->build(['controller' => 'Home', 'action' => 'index']) ?>"><b>Vet</b> APP</a>
+                <a href="<?= $this->Url->build(['controller' => 'Home', 'action' => 'index']) ?>"><b>Vet</b> System</a>
             </div><!-- /.login-logo -->
             <div class="login-box-body">
                 <p class="login-box-msg">Iniciar Sesión</p>

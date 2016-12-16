@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title><?= h($this->fetch('title-meta', 'Vet APP')) ?></title>
+        <title><?= h($this->fetch('title-meta', 'Vet System')) ?></title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Title icon -->
@@ -42,7 +42,7 @@
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>VET</b></span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>Vet </b>APP</span>
+                    <span class="logo-lg"><b>Vet </b>System</span>
                 </a>
                 <!-- Header Navbar -->
                 <nav class="navbar navbar-static-top" role="navigation">
@@ -68,7 +68,7 @@
 
                 </div>
                 <!-- Default to the left -->
-                <strong>Vet APP &copy; <?= date('Y') ?></strong>
+                <strong>Vet System &copy; <?= date('Y') ?></strong>
             </footer>
         </div><!-- ./wrapper -->
         <!-- REQUIRED JS SCRIPTS -->
