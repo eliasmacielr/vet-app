@@ -38,7 +38,7 @@ class CreateUsers extends AbstractMigration
             'null' => false,
         ]);
         $table->addColumn('group_name', 'string', [
-            'limit' => 10,
+            'limit' => 20,
             'null' => false,
         ]);
         $table->addColumn('created', 'datetime', [

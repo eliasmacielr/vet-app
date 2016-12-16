@@ -48,7 +48,7 @@
                     <div class="col-sm-6">
                         <?php
                             echo $this->Form->input('password', ['class' => 'form-control', 'label' => 'Contraseña', 'value' => '', 'maxlength' => 60]);
-                            echo $this->Form->input('group_name', ['class' => 'form-control', 'label' => 'Grupo', 'empty' => 'Seleccione el grupo', 'options' => ['admin' => 'Administrador', 'staff' => 'Miembro']]);
+                            echo $this->Form->input('group_name', ['class' => 'form-control', 'label' => 'Grupo', 'empty' => 'Seleccione el grupo', 'options' => $groupOptions]);
                             echo $this->Form->input('active', ['label' => ' Habilitado']);
                         ?>
                     </div>

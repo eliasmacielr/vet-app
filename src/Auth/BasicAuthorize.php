@@ -20,19 +20,16 @@ class BasicAuthorize extends BaseAuthorize
     {
         $controller = $request->params['controller'];
         $action = $request->params['action'];
-        $prefix = $request->params['prefix'];
-
+        $prefix = isset($request->params['prefix']) ? $request->params['prefix'] : '';
         // if request to system section
         if ($prefix === 'system') {
+            // If request to Users controller
             if (strcmp($controller, 'Users') === 0 && in_array($action, ['index', 'view', 'add', 'edit', 'delete'])) {
-                if (strcmp($user['group_name'], 'admin') !== 0) {
+                if (!in_array($user['group_name'], ['super-admin', 'admin'])) {
                     return false;
                 }
             }
         }
-
-
-
         return true;
     }
 }

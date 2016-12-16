@@ -15,20 +15,9 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $users = $this->paginate($this->Users);
+        $query = $this->Users->find('admin', ['user' => $this->Auth->user()]);
+        $users = $this->paginate($query);
         $this->set(compact('users'));
-    }
-
-    /**
-     * View method.
-     * @param string|null $id User id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $user = $this->Users->get($id);
-        $this->set('user', $user);
     }
 
     /**
@@ -42,13 +31,15 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
                 $this->Flash->success('El usuario ha sido guardado');
-
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error('El usuario no ha sido guardado, intente de nuevo');
             }
         }
-        $this->set(compact('user'));
+
+        $groupOptions = $this->Auth->user('group_name') === 'super-admin' ? ['super-admin' => 'Super Administrador', 'admin' => 'Administrador', 'staff' => 'Miembro Staff'] : ['admin' => 'Administrador', 'staff' => 'Miembro Staff'];
+
+        $this->set(compact(['user', 'groupOptions']));
     }
 
     /**
@@ -59,7 +50,7 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
-        $user = $this->Users->get($id);
+        $user = $this->Users->find('admin', ['user' => $this->Auth->user()])->where([$this->Users->primaryKey() => $id])->firstOrFail();
         if ($this->request->is(['patch', 'post', 'put'])) {
             if (empty($this->request->data['password'])) {
                 unset($this->request->data['password']);
@@ -73,7 +64,10 @@ class UsersController extends AppController
                 $this->Flash->error('No se pudo modificar el usuario, intente de nuevo');
             }
         }
-        $this->set(compact('user'));
+
+        $groupOptions = $this->Auth->user('group_name') === 'super-admin' ? ['super-admin' => 'Super Administrador', 'admin' => 'Administrador', 'staff' => 'Miembro Staff'] : ['admin' => 'Administrador', 'staff' => 'Miembro Staff'];
+
+        $this->set(compact(['user', 'groupOptions']));
     }
 
     /**
@@ -85,7 +79,7 @@ class UsersController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $user = $this->Users->get($id);
+        $user = $this->Users->find('admin', ['user' => $this->Auth->user()])->where([$this->Users->primaryKey() => $id])->firstOrFail();
         if ($this->Users->delete($user)) {
             $this->Flash->success('Se ha eliminado el usuario');
         } else {

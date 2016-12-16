@@ -38,7 +38,7 @@ class LeftMenuCell extends Cell
         // Count registers
         $customers_count = $this->Customers->find()->count();
         $patients_count = $this->Patients->find()->count();
-        $users_count = $this->Users->find()->count();
+        $users_count = $this->Users->find('admin', ['user' => $user])->count();
         $expired_count = $this->Vaccinations->find('totalExpired')->count();
 
         $controller = $this->request->params['controller'];

@@ -169,6 +169,23 @@ class UsersTable extends Table
     }
 
     /**
+     * Find users admin. Hide super-admin user and current user.
+     *
+     * @param  Query  $query
+     * @param  array  $options
+     * @return \Cake\ORM\Query
+     */
+    public function findAdmin(Query $query, array $options)
+    {
+        if ($options['user']['group_name'] === 'super-admin') {
+            return $query->where([$this->aliasField('email').' !=' => 'super-admin@vetsystem.com'])->where([$this->aliasField('email').' !=' => $options['user']['email']]);
+        } elseif ($options['user']['group_name'] === 'admin') {
+            return $query->where([$this->aliasField('group_name').' !=' => 'super-admin'])->where([$this->aliasField('email').' !=' => $options['user']['email']]);;
+        }
+        return $query->where([$this->aliasField('group_name').' !=' => 'super-admin'])->where([$this->aliasField('group_name').' !=' => 'admin'])->where([$this->aliasField('email').' !=' => $options['user']['email']]);
+    }
+
+    /**
      * Authentication finder.
      *
      * @param \Cake\ORM\Query $query

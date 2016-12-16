@@ -63,11 +63,9 @@ class AppController extends Controller
                         'finder' => 'auth',
                     ],
                 ],
-                'loginAction' => [
-                    'controller' => 'Auth',
-                    'action' => 'login',
-                    'prefix' => 'system',
-                ],
+                'loginAction' => ['controller' => 'Auth', 'action' => 'login', 'prefix' => 'system'],
+                'loginRedirect' => ['controller' => 'Home', 'action' => 'index', 'prefix' => 'system'],
+                'logoutRedirect' => ['controller' => 'Auth', 'action' => 'login', 'prefix' => 'system'],
                 'flash' => [
                     'element' => 'auth',
                 ],

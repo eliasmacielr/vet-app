@@ -22,17 +22,27 @@ class UsersSeed extends AbstractSeed
         $hasher = new DefaultPasswordHasher();
         $data = [
             [
-                'email' => 'admin@vetapp.com',
+                'email' => 'super-admin@vetsystem.com',
+                'name' => 'Super',
+                'last_name' => 'Admin',
+                'password' => $hasher->hash('sadmin098'),
+                'active' => true,
+                'group_name' => 'super-admin',
+                'created' => date('Y-m-d H:i:s'),
+                'modified' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'email' => 'admin@vetsystem.com',
                 'name' => 'Admin',
                 'last_name' => 'Admin',
-                'password' => $hasher->hash('secretpass098'),
+                'password' => $hasher->hash('admin098'),
                 'active' => true,
                 'group_name' => 'admin',
                 'created' => date('Y-m-d H:i:s'),
                 'modified' => date('Y-m-d H:i:s'),
             ],
             [
-                'email' => 'staff@vetapp.com',
+                'email' => 'staff@vetsystem.com',
                 'name' => 'Staff',
                 'last_name' => 'Admin',
                 'password' => $hasher->hash('staff098'),
