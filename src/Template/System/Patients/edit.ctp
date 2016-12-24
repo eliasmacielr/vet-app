@@ -10,9 +10,11 @@
 
 <?php $this->append('js') ?>
     <?= $this->Html->script('/adminlte/plugins/select2/select2.full.min.js') ?>
+    <?= $this->Html->script('/adminlte/plugins/select2/i18n/es.js') ?>
     <?= $this->Html->script('quick-forms.js') ?>
     <script>
         $(function () {
+            $.fn.select2.defaults.set('language', 'es');
             $('#breed-id').select2();
             $('#customer-id').select2();
             $('#sex').select2({

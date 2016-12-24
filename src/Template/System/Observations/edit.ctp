@@ -12,7 +12,9 @@
     <?= $this->Html->script('/adminlte/plugins/select2/select2.full.min.js') ?>
     <?= $this->Html->script('/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') ?>
     <?= $this->Html->script('/adminlte/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.es-AR.js') ?>
+    <?= $this->Html->script('/adminlte/plugins/select2/i18n/es.js') ?>
     <script>
+        $.fn.select2.defaults.set('language', 'es');
         $("#content").wysihtml5({
             toolbar: {
                 "link": false, //Button to insert a link. Default true

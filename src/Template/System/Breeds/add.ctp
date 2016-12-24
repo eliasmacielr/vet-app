@@ -9,8 +9,10 @@
 
 <?php $this->append('js') ?>
     <?= $this->Html->script('/adminlte/plugins/select2/select2.full.min.js') ?>
+    <?= $this->Html->script('/adminlte/plugins/select2/i18n/es.js') ?>
     <script>
         $(function () {
+            $.fn.select2.defaults.set('language', 'es');
             $('#species-id').select2();
         });
     </script>
