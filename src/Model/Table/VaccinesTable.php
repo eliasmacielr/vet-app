@@ -60,7 +60,7 @@ class VaccinesTable extends Table
         $validator
             ->requirePresence('name', 'create')
             ->notEmpty('name')
-            ->add('name', 'unique', ['rule' => 'validateUnique', 'provider' => 'table'])
+            ->add('name', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'Ya existe otra vacuna con ese nombre'])
             ->maxLength('name', 50, 'El nombre debe tener como máximo 50 caracteres');
 
         return $validator;

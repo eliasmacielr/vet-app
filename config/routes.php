@@ -50,7 +50,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-    $routes->prefix('system', function ($routes){
+    $routes->prefix('system', function (RouteBuilder $routes) {
         $routes->connect('/', ['controller' => 'Home', 'action' => 'index']);
 
         $routes->connect('/login', ['controller' => 'Auth', 'action' => 'login']);
@@ -83,11 +83,11 @@ Router::scope('/', function (RouteBuilder $routes) {
             $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
         });
 
-       $routes->scope('/breeds', ['controller' => 'Breeds'], function (RouteBuilder $routes) {
-           $routes->connect('/', ['action' => 'index']);
-           $routes->connect('/add', ['action' => 'add']);
-           $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
-           $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
+        $routes->scope('/breeds', ['controller' => 'Breeds'], function (RouteBuilder $routes) {
+            $routes->connect('/', ['action' => 'index']);
+            $routes->connect('/add', ['action' => 'add']);
+            $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
+            $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
         });
 
         $routes->scope('/patients', ['controller' => 'Patients'], function (RouteBuilder $routes) {
@@ -128,7 +128,7 @@ Router::scope('/', function (RouteBuilder $routes) {
             $routes->connect('/edit/:id', ['action' => 'edit'], ['pass' => ['id'], 'id' => '[0-9]+']);
             $routes->connect('/delete/:id', ['action' => 'delete'], ['pass' => ['id'], 'id' => '[0-9]+']);
             $routes->connect('/resume', ['action' => 'resume']);
-            $routes->connect('/show-chart', ['action' => 'show-chart']);
+            $routes->connect('/show-chart', ['action' => 'showChart']);
         });
 
         $routes->scope('/users', ['controller' => 'Users'], function (RouteBuilder $routes) {
@@ -140,24 +140,43 @@ Router::scope('/', function (RouteBuilder $routes) {
             $routes->connect('/edit-profile', ['action' => 'editProfile']);
         });
 
-        /**
-         * Connect catchall routes for all controllers.
-         *
-         * Using the argument `DashedRoute`, the `fallbacks` method is a shortcut for
-         *    `$routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'DashedRoute']);`
-         *    `$routes->connect('/:controller/:action/*', [], ['routeClass' => 'DashedRoute']);`
-         *
-         * Any route class can be used with this method, such as:
-         * - DashedRoute
-         * - InflectedRoute
-         * - Route
-         * - Or your own route class
-         *
-         * You can remove these routes once you've connected the
-         * routes you want in your application.
-         */
+        $routes->prefix('ajax', function(RouteBuilder $routes){
+            $routes->scope('/locations', ['controller' => 'Locations'], function (RouteBuilder $routes) {
+                $routes->connect('/add', ['action' => 'add']);
+            });
+
+            $routes->scope('/species', ['controller' => 'Species'], function (RouteBuilder $routes) {
+                $routes->connect('/', ['action' => 'index']);
+            });
+
+            $routes->scope('/breeds', ['controller' => 'Breeds'], function (RouteBuilder $routes) {
+                $routes->connect('/add', ['action' => 'add']);
+            });
+
+            $routes->scope('/vaccines', ['controller' => 'Vaccines'], function (RouteBuilder $routes) {
+                $routes->connect('/add', ['action' => 'add']);
+            });
+        });
         $routes->fallbacks(DashedRoute::class);
     });
+
+    /**
+     * Connect catchall routes for all controllers.
+     *
+     * Using the argument `DashedRoute`, the `fallbacks` method is a shortcut for
+     *    `$routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'DashedRoute']);`
+     *    `$routes->connect('/:controller/:action/*', [], ['routeClass' => 'DashedRoute']);`
+     *
+     * Any route class can be used with this method, such as:
+     * - DashedRoute
+     * - InflectedRoute
+     * - Route
+     * - Or your own route class
+     *
+     * You can remove these routes once you've connected the
+     * routes you want in your application.
+     */
+    $routes->fallbacks(DashedRoute::class);
 });
 
 /**

@@ -9,6 +9,7 @@
 
 <?php $this->append('js') ?>
     <?= $this->Html->script('/adminlte/plugins/select2/select2.full.min.js') ?>
+    <?= $this->Html->script('quick-forms.js') ?>
     <script>
         $(function () {
             $('#vaccine-id').select2();
@@ -46,6 +47,9 @@
                 allowClear: true
             });
         });
+    </script>
+    <script>
+        $(quickFormVaccine('<?= $this->Url->build(['controller' => 'Vaccines', 'action' => 'add', 'prefix' => 'system/ajax']) ?>'));
     </script>
 <?php $this->end() ?>
 
@@ -100,6 +104,9 @@
                                 ]);
                         ?>
                     </div>
+                    <div class="col-sm-12">
+                        <?= $this->Form->button('Agregar Vacuna', ['class' => 'btn btn-info', 'type' => 'button', 'id' => 'btn-vaccine-add']) ?>
+                    </div>
                 </div><!-- /.box-body -->
                 <div class="box-footer">
                     <?= $this->Form->button('Guardar', ['class' => 'btn btn-primary']) ?>
@@ -110,3 +117,29 @@
         </div>
     </div>
 </section><!--/.content -->
+<div id="vaccine-modal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Agregar nueva vacuna</h4>
+                <div id="modal-error" class="error-message"></div>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label for="vaccine-name" class="col-sm-2 control-label">Nombre</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="vaccine-name" name="vaccine-name" placeholder="Nombre" type="text">
+                            <div id="vaccine-name-error" class="error-message"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-vaccine-cancel"  type="button" class="btn btn-default pull-left">Cancelar</button>
+                <button id="btn-vaccine-save" type="button" class="btn btn-primary">Guardar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

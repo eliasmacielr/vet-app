@@ -54,7 +54,7 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $prefix = isset($this->request->params['prefix']) ? $this->request->params['prefix'] : '';
-        if ($prefix === 'system') {
+        if ($prefix === 'system' || $prefix === 'system/ajax') {
             $this->loadComponent('Auth', [
                 'authorize' => 'Basic',
                 'authenticate' => [

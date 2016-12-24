@@ -44,10 +44,10 @@ class VaccinesController extends AppController
         if ($this->request->is('post')) {
             $vaccine = $this->Vaccines->patchEntity($vaccine, $this->request->data);
             if ($this->Vaccines->save($vaccine)) {
-                $this->Flash->success('La vacuna ha sido guardado');
+                $this->Flash->success('La vacuna ha sido guardada');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error('La vacuna no ha sido guardado');
+                $this->Flash->error('La vacuna no ha sido guardada');
             }
         }
         $this->set(compact('vaccine'));

@@ -5,10 +5,12 @@
 <?php $this->append('css') ?>
     <?= $this->Html->css('/adminlte/plugins/select2/select2.min.css') ?>
     <?= $this->Html->css('form.css') ?>
+    <?= $this->Html->css('vet-app.css') ?>
 <?php $this->end() ?>
 
 <?php $this->append('js') ?>
     <?= $this->Html->script('/adminlte/plugins/select2/select2.full.min.js') ?>
+    <?= $this->Html->script('quick-forms.js') ?>
     <script>
         $(function () {
             $('#breed-id').select2();
@@ -32,6 +34,9 @@
                 allowClear: true
             });
         });
+    </script>
+    <script>
+        $(quickFormBreed('<?= $this->Url->build(['controller' => 'Species', 'action' => 'index', 'prefix' => 'system/ajax']) ?>', '<?= $this->Url->build(['controller' => 'Breeds', 'action' => 'add', 'prefix' => 'system/ajax']) ?>'));
     </script>
 <?php $this->end() ?>
 
@@ -79,6 +84,9 @@
                                 ]);
                         ?>
                     </div>
+                    <div class="col-sm-12">
+                        <?= $this->Form->button('Agregar raza', ['class' => 'btn btn-info', 'type' => 'button', 'id' => 'btn-breed-add']) ?>
+                    </div>
                 </div><!-- /.box-body -->
                 <div class="box-footer">
                     <?= $this->Form->button('Guardar', ['class' => 'btn btn-primary']) ?>
@@ -93,3 +101,42 @@
         </div>
     </div>
 </section><!--/.content -->
+<div id="breed-modal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Agregar nueva raza</h4>
+                <div id="modal-error" class="error-message"></div>
+            </div>
+            <div class="modal-body">
+                <div id="breed-form" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="select-species" class="col-sm-2 control-label">Especie</label>
+                        <div class="col-sm-10">
+                            <select id="select-species" name="select-species" class="form-control">
+                            </select>
+                            <div id="species-select-error" class="error-message"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="breed-name" class="col-sm-2 control-label">Nombre</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="breed-name" name="breed-name" placeholder="Nombre" type="text">
+                            <div id="breed-name-error" class="error-message"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="species-loading" class="col-xs-1 col-centered">
+                    <div class="overlay">
+                        <i class="fa fa-refresh fa-spin"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-breed-cancel"  type="button" class="btn btn-default pull-left">Cancelar</button>
+                <button id="btn-breed-save" type="button" class="btn btn-primary">Guardar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
