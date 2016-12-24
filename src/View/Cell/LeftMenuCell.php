@@ -36,14 +36,14 @@ class LeftMenuCell extends Cell
         $user = $this->request->session()->read('Auth.User');
 
         // Count registers
-        $customers_count = $this->Customers->find()->count();
-        $patients_count = $this->Patients->find()->count();
-        $users_count = $this->Users->find('admin', ['user' => $user])->count();
-        $expired_count = $this->Vaccinations->find('totalExpired')->count();
+        $customersCount = $this->Customers->find()->count();
+        $patientsCount = $this->Patients->find()->count();
+        $usersCount = $this->Users->find('admin', ['user' => $user])->count();
+        $expiredCount = $this->Vaccinations->find('totalExpired')->count();
 
         $controller = $this->request->params['controller'];
         $action = $this->request->params['action'];
 
-        $this->set(compact('controller', 'action', 'customers_count', 'patients_count', 'users_count', 'expired_count', 'user'));
+        $this->set(compact('controller', 'action', 'customersCount', 'patientsCount', 'usersCount', 'expiredCount', 'user'));
     }
 }

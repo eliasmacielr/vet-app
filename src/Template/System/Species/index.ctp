@@ -52,12 +52,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($species as $species_row): ?>
+                            <?php foreach ($species as $speciesRow): ?>
                                 <tr>
-                                    <td><?= h($species_row->name) ?></td>
+                                    <td><?= h($speciesRow->name) ?></td>
                                     <td>
-                                        <a href="<?= $this->Url->build(['action' => 'edit', 'id' => $species_row->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar</a>
-                                        <?= $this->Form->create(null, ['url' => ['action' => 'delete', 'id' => $species_row->id], 'type' => 'delete', 'style' => 'display: inline !important']) ?>
+                                        <a href="<?= $this->Url->build(['action' => 'edit', 'id' => $speciesRow->id]) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar</a>
+                                        <?= $this->Form->create(null, ['url' => ['action' => 'delete', 'id' => $speciesRow->id], 'type' => 'delete', 'style' => 'display: inline !important']) ?>
                                         <button name="delete-btn" class="btn btn-danger" type="button">
                                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Borrar
                                         </button>
