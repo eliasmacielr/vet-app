@@ -1,6 +1,6 @@
 <?php $this->layout = 'system' ?>
 
-<?php $this->assign('title-meta', 'Vet APP - Cambiar contraseña') ?>
+<?php $this->assign('title-meta', 'Vet System - Cambiar contraseña') ?>
 
 <?php $this->append('css') ?>
     <?= $this->Html->css('form.css') ?>

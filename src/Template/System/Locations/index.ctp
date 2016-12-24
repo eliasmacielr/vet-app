@@ -1,6 +1,6 @@
 <?php $this->layout = 'system' ?>
 
-<?php $this->assign('title-meta', 'Vet APP - Ciudades') ?>
+<?php $this->assign('title-meta', 'Vet System - Ciudades') ?>
 
 <?php $this->append('js') ?>
     <?= $this->Html->script('delete-confirm.js') ?>

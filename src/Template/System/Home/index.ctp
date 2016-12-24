@@ -1,6 +1,6 @@
 <?php $this->layout = 'system' ?>
 
-<?php $this->assign('title-meta', 'Vet APP - Inicio Panel') ?>
+<?php $this->assign('title-meta', 'Vet System - Inicio Panel') ?>
 
 <!--Content Wrapper. Contains page content -->
 <!--Content Header (Page header) -->

@@ -1,6 +1,6 @@
 <?php $this->layout = 'system' ?>
 
-<?php $this->assign('title-meta', 'Vet APP - Editar vacuna') ?>
+<?php $this->assign('title-meta', 'Vet System - Editar vacuna') ?>
 
 <?php $this->append('css') ?>
     <?= $this->Html->css('form.css') ?>

@@ -1,6 +1,6 @@
 <?php $this->layout = 'system' ?>
 
-<?php $this->assign('title-meta', 'Vet APP - Vacunas vencidas') ?>
+<?php $this->assign('title-meta', 'Vet System - Vacunas vencidas') ?>
 
 <?php $this->append('js') ?>
     <script>

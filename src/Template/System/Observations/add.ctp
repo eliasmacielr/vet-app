@@ -1,6 +1,6 @@
 <?php $this->layout = 'system' ?>
 
-<?php $this->assign('title-meta', 'Vet APP - Agregar observación') ?>
+<?php $this->assign('title-meta', 'Vet System - Agregar observación') ?>
 
 <?php $this->append('css') ?>
     <?= $this->Html->css('/adminlte/plugins/select2/select2.min.css') ?>

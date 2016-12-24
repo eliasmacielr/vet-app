@@ -1,6 +1,6 @@
 <?php $this->layout = 'system' ?>
 
-<?php $this->assign('title-meta', 'Vet APP - Movimientos resumen') ?>
+<?php $this->assign('title-meta', 'Vet System - Movimientos resumen') ?>
 
 <?php $this->append('css') ?>
     <?= $this->Html->css('vet-app') ?>

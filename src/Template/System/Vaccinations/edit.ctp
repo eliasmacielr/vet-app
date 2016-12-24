@@ -1,6 +1,6 @@
 <?php $this->layout = 'system' ?>
 
-<?php $this->assign('title-meta', 'Vet APP - Vacunación') ?>
+<?php $this->assign('title-meta', 'Vet System - Vacunación') ?>
 
 <?php $this->append('css') ?>
     <?= $this->Html->css('/adminlte/plugins/select2/select2.min.css') ?>
