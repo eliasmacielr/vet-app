@@ -140,7 +140,7 @@ Router::scope('/', function (RouteBuilder $routes) {
             $routes->connect('/edit-profile', ['action' => 'editProfile']);
         });
 
-        $routes->prefix('ajax', function(RouteBuilder $routes){
+        $routes->prefix('ajax', function (RouteBuilder $routes) {
             $routes->scope('/locations', ['controller' => 'Locations'], function (RouteBuilder $routes) {
                 $routes->connect('/add', ['action' => 'add']);
             });
@@ -158,6 +158,10 @@ Router::scope('/', function (RouteBuilder $routes) {
             });
         });
         $routes->fallbacks(DashedRoute::class);
+    });
+
+    $routes->prefix('api', function (RouteBuilder $routes) {
+        $routes->resources('Customers');
     });
 
     /**
