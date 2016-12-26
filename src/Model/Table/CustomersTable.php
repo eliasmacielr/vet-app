@@ -88,7 +88,6 @@ class CustomersTable extends Table
             ->maxLength('phone', 20, 'El teléfono debe tener como máximo 20 caracteres');
 
         $validator
-            ->requirePresence('phone_other')
             ->allowEmpty('phone_other')
             ->integer('phone_other', 'El teléfono ingresado es inválido')
             ->maxLength('phone_other', 20, 'El teléfono debe tener como máximo 20 caracteres');
