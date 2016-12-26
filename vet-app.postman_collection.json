@@ -1,0 +1,115 @@
+{
+	"variables": [],
+	"info": {
+		"name": "vet-app",
+		"_postman_id": "55d46abf-0d26-3f9e-c978-78242fa1cb7b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List",
+			"request": {
+				"url": "localhost/vet/api/customers",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Index"
+			},
+			"response": []
+		},
+		{
+			"name": "View",
+			"request": {
+				"url": "localhost/vet/api/customers/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add",
+			"request": {
+				"url": "localhost/vet/api/customers/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Bart\",\n\t\"last_name\": \"Simpson\",\n\t\"email\": \"elbarto@mail.com\",\n\t\"phone\": \"0987654321\",\n\t\"address\": \"Avda. Siempre Viva\",\n\t\"location_id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Edit",
+			"request": {
+				"url": "/localhost/vet/api/customers/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"address\": \"Avda. Siempre Viva\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"url": "localhost/vet/api/customers/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
