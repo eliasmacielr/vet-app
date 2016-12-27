@@ -43,7 +43,7 @@ class CustomersController extends ApiController
             'contain' => ['Locations', 'Patients']
         ]);
         $status = true;
-        $this->set(compact['customers', 'status']);
+        $this->set(compact(['customers', 'status']));
         $this->set('_serialize', ['customer', 'status']);
     }
 
