@@ -1,26 +1,50 @@
-# CakePHP Application Skeleton
+# Vet System
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
+A patients manager system.
 
-A skeleton for creating applications with [CakePHP](http://cakephp.org) 3.x.
+## Writed with (languages)
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+### Back-end
 
-## Installation
+- PHP.
+- mysql or postgresql (tested).
 
-1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+### Front-end
 
-If Composer is installed globally, run
-```bash
-composer create-project --prefer-dist cakephp/app [app_name]
-```
+- Javascript.
+- HTML.
+- CSS.
 
-You should now be able to visit the path to where you installed the app and see
-the setup traffic lights.
+## Frameworks used in this project
 
-## Configuration
+- CakePHP 3 (Back-end).
+- Angular 2 (Front-end).
 
-Read and edit `config/app.php` and setup the 'Datasources' and any other
-configuration relevant for your application.
+## Rest APIs
+
+Rest APIs follows CakePHP conventions for paths [see CakePHP routing](http://book.cakephp.org/3.0/en/development/routing.html#creating-restful-routes).
+
+### Example
+
+HTTP verbs | URL.format               | actions
+---------- | ------------------------ | -------
+GET        | /resources.[format]/     | List
+GET        | /resources/123.[format]/ | View
+POST       | /resources.[format]/     | Add
+PUT        | /resources/123.[format]/ | Edit
+DELETE     | /resources/123.[format]/ | Delete
+
+See what's inside the square brackets are optional
+
+### To-Do (Rest APIs)
+
+- [] Provide access to Breeds.
+- [x] Provide access to Customers.
+- [] Provide access to Locations.
+- [] Provide access to Movements.
+- [] Provide access to Observations.
+- [] Provide access to Patients.
+- [] Provide access to Species.
+- [] Provide access to Users.
+- [] Provide access to Vaccinations.
+- [] Provide access to Vaccines.
