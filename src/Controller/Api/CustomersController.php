@@ -40,7 +40,7 @@ class CustomersController extends ApiController
     public function view($id = null)
     {
         $customer = $this->Customers->get($id, [
-            'contain' => ['Locations', 'Patients']
+            'contain' => ['Locations']
         ]);
         $status = true;
         $this->set(compact(['customer', 'status']));
