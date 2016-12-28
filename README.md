@@ -2,7 +2,7 @@
 
 A patients manager system.
 
-## Writed with (languages)
+## Developed with (languages)
 
 ### Back-end
 
@@ -20,9 +20,9 @@ A patients manager system.
 - CakePHP 3 (Back-end).
 - Angular 2 (Front-end).
 
-## Rest APIs
+## REST APIs
 
-Rest APIs follows CakePHP conventions for paths [see CakePHP routing](http://book.cakephp.org/3.0/en/development/routing.html#creating-restful-routes).
+REST APIs follows CakePHP conventions for paths. See [CakePHP routing](http://book.cakephp.org/3.0/en/development/routing.html#creating-restful-routes).
 
 ### Example
 
@@ -34,17 +34,17 @@ POST       | /resources.[format]/     | Add
 PUT        | /resources/123.[format]/ | Edit
 DELETE     | /resources/123.[format]/ | Delete
 
-See what's inside the square brackets are optional
+What's inside the square brackets is optional.
 
-### To-Do (Rest APIs)
+### To-Do (REST APIs)
 
-- [] Provide access to Breeds.
+- [ ] Provide access to Breeds.
 - [x] Provide access to Customers.
-- [] Provide access to Locations.
-- [] Provide access to Movements.
-- [] Provide access to Observations.
-- [] Provide access to Patients.
-- [] Provide access to Species.
-- [] Provide access to Users.
-- [] Provide access to Vaccinations.
-- [] Provide access to Vaccines.
+- [ ] Provide access to Locations.
+- [ ] Provide access to Movements.
+- [ ] Provide access to Observations.
+- [ ] Provide access to Patients.
+- [ ] Provide access to Species.
+- [ ] Provide access to Users.
+- [ ] Provide access to Vaccinations.
+- [ ] Provide access to Vaccines.
