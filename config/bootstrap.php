@@ -222,3 +222,4 @@ Type::build('datetime')
     ->useLocaleParser();
 
 Plugin::load('Search');
+Plugin::load('BryanCrowe/ApiPagination');
