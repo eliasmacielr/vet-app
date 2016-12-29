@@ -21,11 +21,13 @@ class CustomersController extends ApiController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Locations']
+            'contain' => ['Locations'],
+            'finder' => [
+                'search' => $this->Customers->filterParams($this->request->query)
+            ],
         ];
         $customers = $this->paginate($this->Customers);
         $status = true;
-
         $this->set(compact(['customers', 'status']));
         $this->set('_serialize', ['customers', 'status']);
     }
