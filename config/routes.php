@@ -161,7 +161,16 @@ Router::scope('/', function (RouteBuilder $routes) {
     });
 
     $routes->prefix('api', function (RouteBuilder $routes) {
+        $routes->resources('Breeds');
         $routes->resources('Customers');
+        $routes->resources('Locations');
+        $routes->resources('Movements');
+        $routes->resources('Observations');
+        $routes->resources('Patients');
+        $routes->resources('Species');
+        $routes->resources('Users');
+        $routes->resources('Vaccinations');
+        $routes->resources('Vaccines');
     });
 
     /**
