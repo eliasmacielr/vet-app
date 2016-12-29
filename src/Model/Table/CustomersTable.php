@@ -34,6 +34,7 @@ class CustomersTable extends Table
         $this->addBehavior('Timestamp');
         $this->addBehavior('Search.Search');
 
+        $databaseDriver = $this->connection()->config()['driver'];
         $this->searchManager()
             ->add('q', 'Search.Like', [
                 'before' => true,
@@ -42,7 +43,8 @@ class CustomersTable extends Table
                     $this->aliasField('name'),
                     $this->aliasField('last_name'),
                     $this->aliasField('phone'),
-                ]
+                ],
+                'comparison' => strpos($databaseDriver, 'Postgres') !== false ? 'ILIKE' : 'LIKE'
             ]);
 
         $this->belongsTo('Locations', [
