@@ -33,6 +33,7 @@ class ApiController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('ErrorAdapter');
+        $this->loadComponent('BryanCrowe/ApiPagination.ApiPagination');
     }
 
     /**
