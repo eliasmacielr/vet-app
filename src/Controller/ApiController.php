@@ -42,6 +42,14 @@ class ApiController extends Controller
      */
     public function beforeRender(Event $event)
     {
+        $this->response->cors($this->request)
+            ->allowOrigin(['*'])
+            ->allowMethods(['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'])
+            ->allowHeaders(['X-CSRF-Token', 'Content-type'])
+            ->allowCredentials()
+            ->maxAge(300)
+            ->build();
+
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {
